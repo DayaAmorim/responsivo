@@ -1,13 +1,15 @@
-/* Configuração Padrão */
+/* DEFAULT SETTINGS  */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     font-family: "segoe UI", sans-serif;
 }
-a{
+
+a {
     text-decoration: none;
     color: #160202;
     font-size: 1.5em;
@@ -15,28 +17,30 @@ a{
 
 /* NavBar */
 
-.navbar{
+.navbar {
     width: 100%;
     height: 100px;
     background-color: #ebedef;
 }
 
-.navbar img{
+.navbar img {
     width: 150px;
 }
 
-.navbar ul{
-    list-style: none;
-    display: flex;
-}
 .navbar ul li+li{
     margin-left: 5px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
 }
 
 .navbar li a{
     list-style: none;
     display: block;
     padding: 10px 20px;
+    transition: all .1s ease-in;
 }
 
 .navbar li a:hover{
@@ -47,39 +51,40 @@ a{
 
 
 /* usando o display: flex */
-.sub-container{
+.sub-container {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
     width: 1024px;
-    height: 1024px;
+    height: 100px;
     padding: 20px;
 }
 
 /* <DIV> principal "CONTAINER" */
 
-.container{
+.container {
     width: 1024px;
     margin: 0 auto;
 }
 
 /* section */
 
-.section{
+.section {
     display: grid;
     grid-template-columns: 512px 512px;
 
 }
 
-.img-area, .text-area{
+.img-area, .text-area {
     width: 512px;
     align-items: center;
     display: grid;
+    transition: all .25s ease;
 }
 
-.img-area{
+.img-area {
     display: flex;
     align-items:center;
     justify-content: center;
@@ -87,18 +92,11 @@ a{
 
 }
 
-.img-area img{
-    max-width: 100%;
-    padding: 20px;
-    border-radius: 25px;
-    transition: all .25s ease;
-}
-.img-area span{
+.img-area span {
     opacity: 0;
     position: absolute;
     transition: all .25s ease;
     z-index: 1;
-
 }
 
 .img-area span:hover{
@@ -106,22 +104,30 @@ a{
     
 }
 
-.img-area img:hover{
-    filter: blur(1px) grayscale(100%);
+.img-area img {
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 25px;
+    transition: all .25s ease;
 }
 
-.img-area:hover >span{
+
+.img-area img:hover {
+    filter: blur(1px) grayscale(1);
+}
+
+.img-area:hover >span {
     opacity: 1;
 }
 
-.text-area{
+.text-area {
     color: #0d0c0c;
     letter-spacing: 1px;
     text-align: center;
     padding: 20px;
 }
 
-.text-area h1{
+.text-area h1 {
     margin-bottom: 20px;
     cursor: default;
 }
@@ -133,16 +139,168 @@ a{
 /* contato */
 
 .bg-contact{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
+    height: 680px;
     border-radius: 5px;
     background: url(/img/mountain_3.png);
     background-size: cover;
+    transition: all .25s ease;
     
+}
 
+.bg-contact: :hover {
+    filter: grayscale (1);
+}
+
+.contact, .img-area span {
+    background: #ebedef;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.bg-contact: :hover {
+    color: #ebedef;
+    background: none;
+    border: 1px solid #ebdefe;
+    transform: scale (1.01);
 
 }
+
+@keyframes arrow {
+    from{
+        bottom: 60px;
+    }
+
+    to {
+        bottom: 30px;
+    }
+}
+
+.arrow {
+    animation: arrow 1s infinite alternate ease-in;
+    z-index: 1;
+    position: absolute;
+    font-size: 2em;
+    color: white;
+}
+
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    flex-wrap: wrap;
+    height: 400px;
+}
+
+.contact-section img {
+    max-width: 200px;
+    max-height: 50px;
+    margin: 20px 0 10px 0;
+
+}
+
+.linkedin span, .github span {
+    padding-bottom: 5px;
+    transition: border-bottom 1.s ease;
+
+}
+
+.linkedin: hover span,
+.github: :hover span {
+    border-bottom: 2px solid #2d2d2d
+}
+
+/* FOOTER */
+
+footer {
+    height: 100px;
+    background: #ebedef;
+}
+
+footer span{
+    margin: 0 auto;
+    font-style: italic;
+    font-size: 0.9em;
+    cursor: default;
+}
+
+/* BREAKPOINT MEDIUM-LARGE DEVICES */
+
+@media (max-widht: 1050px) {
+
+    .navbar {
+        margin-bottom: 50px;
+    }
+
+    .sub-container{
+        width: 760px;
+        padding: 0 40px;
+    }
+
+    .container{
+        width: 760px;
+    }
+
+    .section {
+        grid-template-columns: 760px;
+        justify-content: center;
+    }
+
+    .img-area. .text-area {
+        margin: 0 auto;
+        width: 700px;
+        margin-bottom: 20px;
+    }
+}
+
+    @media (max-widht: 785px) {
+        .sub-container {
+            justify-content: center;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .container  {
+            width: 100%;
+        }
+
+        .section {
+            grid-template-columns: 1;
+            justify-content: center;
+        }
+
+        .img-area img {
+            padding: 0;
+            width: 95%;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .contact-section {
+            font-size: 0.7em;
+        }
+    }
+    /*  BREAKPOINT SMALL DEVICES*/
+
+    @media (max-widht: 548px) {
+
+        .navbar {
+            height: 150px;
+            margin-bottom: 0;
+        }
+
+        .img-area, .img-area img,
+        .text-area {
+            width: 360px;
+        }
+    }
 
 
